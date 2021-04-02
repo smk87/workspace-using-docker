@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+    mysql:
+        build: ./databases/mysql # Image location to DockerFile
+        container_name: mysql
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+            - '/home/docker/mysql-data:/var/lib/mysql' # Data location to persist
+    redis:
+        build: ./redis # Image location to DockerFile
+        container_name: redis
+        restart: always
+        ports:
+            - 6379:6379
